@@ -1,0 +1,18 @@
+trigger:
+- '*'
+
+pool:
+  name: Default
+  demands: Docker
+
+resources:
+  containers:
+  - container: sshd
+    image: testcontainers/sshd:1.2.0
+
+services:
+  sshd: sshd
+
+steps:
+- script: netstat -aon | findstr 0.0.0.0:22
+  displayName: 'Check if SSHD is running on port 22'
