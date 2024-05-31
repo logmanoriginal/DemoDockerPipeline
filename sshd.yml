@@ -14,5 +14,5 @@ services:
   sshd: sshd
 
 steps:
-- script: netstat -aon | findstr 0.0.0.0:22
+- script: netstat -aon | findstr /i 0.0.0.0:22
   displayName: 'Check if SSHD is running on port 22'
