@@ -5,6 +5,11 @@ pool:
   name: Default
   demands: Docker
 
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/resources-containers?view=azure-pipelines
+containers:
+  - container: hello-world
+    image: hello-world:latest
+
 # https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps-task?view=azure-pipelines
 steps:
 # https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/docker-v2?view=azure-pipelines&tabs=yaml
