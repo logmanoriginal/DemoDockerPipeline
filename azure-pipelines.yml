@@ -9,7 +9,11 @@ resources:
   # https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/resources-containers?view=azure-pipelines
   containers:
   - container: hello-world
+    # https://hub.docker.com/_/hello-world
     image: hello-world:latest
+
+services:
+  hello-world: hello-world
 
 # https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps-task?view=azure-pipelines
 steps:
@@ -18,5 +22,4 @@ steps:
   displayName: 'Hello World'
   inputs:
     command: start
-    # https://hub.docker.com/_/hello-world
     container: hello-world
