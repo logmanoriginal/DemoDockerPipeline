@@ -8,18 +8,15 @@ pool:
 resources:
   # https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/resources-containers?view=azure-pipelines
   containers:
-  - container: hello-world
-    # https://hub.docker.com/_/hello-world
-    image: hello-world:latest
+  - container: alpine
+    # https://hub.docker.com/_/alpine
+    image: alpine:latest
 
+# https://learn.microsoft.com/en-us/azure/devops/pipelines/process/service-containers?view=azure-devops&tabs=yaml
 services:
-  hello-world: hello-world
+  alpine: alpine
 
-# https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps-task?view=azure-pipelines
 steps:
-# https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/docker-v2?view=azure-pipelines&tabs=yaml
-- task: Docker@2
-  displayName: 'Hello World'
-  inputs:
-    command: start
-    container: hello-world
+- script: echo "Hello World"
+  target:
+    container: alpine
